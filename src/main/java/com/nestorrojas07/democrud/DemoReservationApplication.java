@@ -1,4 +1,4 @@
-package com.example.democrud;
+package com.nestorrojas07.democrud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
