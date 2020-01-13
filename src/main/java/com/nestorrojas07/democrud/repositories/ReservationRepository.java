@@ -13,6 +13,7 @@ import com.nestorrojas07.democrud.models.Reservation;
 @Repository
 public interface ReservationRepository extends JpaRepository<Reservation, Integer>{
 	
+	//Query 
 	@Query("select r from reservation where r.from_at = :pfrom_at and r.to_at = :pto_at")
 	public List<Reservation> find(@Param("pfrom_at") Date from_at, @Param("pto_at") Date to_at);
 }
