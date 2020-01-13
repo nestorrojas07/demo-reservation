@@ -37,4 +37,11 @@ public interface CustomerRepository  extends JpaRepository<Customer, Integer>{
 	 * @return
 	 */
 	public Customer findByDni(String dni);
+	
+	/**
+	 * Search by email use a Named Query
+	 * @param email
+	 * @return
+	 */
+	public Customer findByEmailAlias(String email);
 }

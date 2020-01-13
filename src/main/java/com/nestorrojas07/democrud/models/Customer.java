@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -23,6 +24,10 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "customers")
+@NamedQuery(
+		name = "Customer.findByEmail",
+		query = "select c from Customer c where c.email= ?1"
+		)
 public class Customer {
 	@Id
 	@Column(name = "id")
