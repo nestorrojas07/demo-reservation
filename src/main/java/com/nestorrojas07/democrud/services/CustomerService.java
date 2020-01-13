@@ -3,6 +3,9 @@
  */
 package com.nestorrojas07.democrud.services;
 
+
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.nestorrojas07.democrud.models.Customer;
@@ -31,6 +34,7 @@ public class CustomerService {
 	 * @param custmer
 	 * @return
 	 */
+	@Transactional
 	public Customer create(Customer custmer) {
 		return this.customerRepository.save(custmer);
 	}
@@ -40,6 +44,7 @@ public class CustomerService {
 	 * @param custmer
 	 * @return
 	 */
+	@Transactional
 	public Customer update(Customer custmer) {
 		return this.customerRepository.save(custmer);
 	}
@@ -48,6 +53,7 @@ public class CustomerService {
 	 * Delete Customer
 	 * @param customer
 	 */
+	@Transactional
 	public void delete(Customer customer) {
 		this.customerRepository.delete(customer);
 	}
