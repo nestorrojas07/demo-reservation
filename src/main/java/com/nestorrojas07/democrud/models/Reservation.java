@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -30,7 +32,10 @@ public class Reservation {
 	@GenericGenerator(name = "uuid2", strategy = "uuid2")
 	private String uuid;
 	
+	//indica el formato en como sera tratada la fecha para los query
+	@Temporal(TemporalType.DATE) 
 	private Date from_at;
+	@Temporal(TemporalType.DATE)
 	private Date to_at;
 	
 	private Date created_at;
