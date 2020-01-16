@@ -4,6 +4,8 @@
 package com.nestorrojas07.democrud.services;
 
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -35,8 +37,8 @@ public class CustomerService {
 	 * @return
 	 */
 	@Transactional
-	public Customer create(Customer custmer) {
-		return this.customerRepository.save(custmer);
+	public Customer create(Customer customer) {
+		return this.customerRepository.save(customer);
 	}
 	
 	/**
@@ -45,8 +47,8 @@ public class CustomerService {
 	 * @return
 	 */
 	@Transactional
-	public Customer update(Customer custmer) {
-		return this.customerRepository.save(custmer);
+	public Customer update(Customer customer) {
+		return this.customerRepository.save(customer);
 	}
 	
 	/**
@@ -67,6 +69,12 @@ public class CustomerService {
 		return this.findByDni(dni);
 	}
 	
-	
+	/**
+	 * Find all resources
+	 * @return
+	 */
+	public List<Customer> findAll(){
+		return this.customerRepository.findAll();
+	}
 
 }
