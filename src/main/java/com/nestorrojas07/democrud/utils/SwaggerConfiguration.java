@@ -3,6 +3,7 @@
  */
 package com.nestorrojas07.democrud.utils;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,11 +19,16 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @author nrojas
  *
  */
-
+@Configuration
+@EnableSwagger2
 public class SwaggerConfiguration {
-
+	
+	@Bean
 	public Docket documentation() {
-		return new Docket(DocumentationType.SWAGGER_2).select()
+		return new Docket(DocumentationType.SWAGGER_2)
+				//.host("http://localhost:8080/")
+
+				.select()
 				.apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
 				.paths(PathSelectors.any())
 				.build();
