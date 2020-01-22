@@ -66,7 +66,7 @@ public class CustomerService {
 	 * @return
 	 */
 	public Customer findByDni(String dni) {
-		return this.findByDni(dni);
+		return this.customerRepository.findByDni(dni);
 	}
 	
 	/**
