@@ -20,13 +20,12 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// TODO Auto-generated method stub
-		http.authorizeRequests()
-		.anyRequest()
-		.authenticated()
+		http.csrf().disable()
+		.authorizeRequests().anyRequest().authenticated()
 		.and()
-		.formLogin()
-		.and()
-		.httpBasic();
+		.formLogin().loginPage("/app/login").permitAll()//llama al recurso
+		.failureUrl("/app/login?error=true")
+		.defaultSuccessUrl("/app/home");
 	}
 
 	
